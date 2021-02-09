@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.新增的几种循环方法</title>
+  </head>
+  <body>
+    <script>
+      // 常规循环方法:while、for...
+      // for...of循环、for...in循环
+      // forEach循环
+      let list = [3, 6, 9, 1, 5, 9];
+      for (const i in list) {
+        // console.log(i); //输出数组的下标
+        // console.log(list[i]); //输出数组下标对应的值
+      }
+
+      for (const n of list) {
+        //   console.log(n); //输出数组下标对应的值
+      }
+
+      list.forEach((n,i) => {
+        //    console.log(n); //输出数组下标对应的值
+           console.log(i); //输出数组的下标
+      });
+    </script>
+  </body>
+</html>

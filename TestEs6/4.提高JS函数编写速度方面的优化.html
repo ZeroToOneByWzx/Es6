@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.提高JS函数编写速度方面的优化</title>
+  </head>
+  <body>
+    <script>
+      // 1、函数参数的默认值、多参数写法
+      // function fun1(x=0,y=0){
+      //     return x+y;
+      // }
+      // console.log(fun1(2,6));
+
+      // function fun2(...n){
+      //     console.log(n.length);
+      //     for(i=0;i<n.length;i++){
+      //         console.log(n[i]);
+      //     }
+      // }
+      // fun2(1,2,3,4,5);
+
+      // 2、箭头函数
+      //   let fun3 = (x, y = 1) => {
+      //     //设定y的默认值是1
+      //     return x + y;
+      //   };
+      //   console.log(fun3(3, 7)); //10
+      //   console.log(fun3(4)); //5
+
+      //   let fun4 = (x) => {
+      //     //一个参数时可简写为let fun4 =x=> {} 去掉括号
+      //     return x + 1;
+      //   };
+      //   //let fun4 = (x) => x + 1;终极简写 {}括号里面只有一句执行语句时
+      //   console.log(fun4(16));
+
+      // 3、函数尾调用(是最后一步不是最后一行调用其他函数或者自己(递归))
+      //尾调用可优化内存空间，递归是尾优化的典型应用
+      //   let fun1 = (x, y) => x + y;
+      //   let fun2 = () => {
+      //     return fun1(2, 3);
+      //   };
+      //   console.log(fun2());
+
+      //不属于尾调用
+      //   let fun3 = () => {
+      //     let n = fun1(2, 3);
+      //     return n;
+      //   };
+
+      //不属于尾调用
+      //   let fun4 = () => {
+      //     return fun1(2, 3) + 1;
+      //   };
+      //   console.log(fun2());
+
+      //4、尾调用的例子
+      let factorial1 = (n) => {
+        if (n <= 1) {
+          return 1;
+        } else {
+          return n * factorial1(n - 1); //这已经不是尾调用
+        }
+      };
+      console.log(factorial1(5));
+
+      let factorial2 = (n, p = 1) => {
+        if (n <= 1) {
+          return 1 * p;
+        } else {
+          let result = n * p;
+          return factorial2(n - 1, result);
+        }
+      };
+      console.log(factorial2(5));
+    </script>
+  </body>
+</html>

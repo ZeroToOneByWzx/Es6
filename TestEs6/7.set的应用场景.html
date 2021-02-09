@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7.set的应用场景</title>
+  </head>
+  <body>
+    <script>
+      let arr = [3, 5, 7, 5, 2, 1];
+      let set1 = new Set(arr); //利用Set()自带功能实现去重
+      //console.log(set1); //输出 arr[3,5,7,2,1]
+
+      let set2 = new Set([4, 6, 8, 2, 1]);
+      //   set2.add(0); //往set2最后加一个0
+      //   set2.delete(8); //删掉set2中的8
+      //   console.log(set2); //输出 {4, 6, 2, 1, 0}
+
+      let set3 = new Set([3, 6, 8, 7, 1]);
+      let set4 = new Set([...set2, ...set3]); //先利用扩展运算符遍历 再合并两个set 并去重
+      // console.log(set4);//4 6 8 2 1 3 7
+      let set5 = new Set([...set2].filter((x) => set3.has(x))); //交集
+      // console.log(set5); // {6, 8, 1}
+      let set6 = new Set([...set2].filter((x) => !set3.has(x))); //差集
+      // console.log(set6); //{4, 2}
+      let set7 = new Set(
+        [...set2].filter(function (x) {
+          return !set3.has(x);
+        })
+      ); //差集的常规写法
+      console.log(set7); //{4, 2}
+    </script>
+  </body>
+</html>

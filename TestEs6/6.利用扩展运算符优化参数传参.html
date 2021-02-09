@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.利用扩展运算符优化参数传参</title>
+  </head>
+  <body>
+    <script>
+      // ...:扩展运算符
+      //let add = (a,b,c,d) => {//小学生的写法
+      let add = (...c) => {
+        // return c[0]+c[1]+c[2]+c[3];//小学生的写法
+        //升级版本
+        let sum = 0;
+        for (const num of c) {
+          sum += num;
+        }
+        return sum;
+      };
+      let num = [1, 5, 5, 9];
+      let n = add(...num);
+      console.log(n); //输出 20
+
+      //   filer 过滤
+      //常规写法
+      //   let num1 = num.filter(function (x) {
+      //     return x != 5;
+      //   });
+      //简写
+      let num1 = num.filter((x) => x != 5);
+      console.log(num1);
+    </script>
+  </body>
+</html>

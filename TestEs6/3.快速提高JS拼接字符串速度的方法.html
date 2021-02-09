@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.快速提高JS拼接字符串速度的方法</title>
+  </head>
+  <body>
+    <script>
+      //   let userName = "xiaoming";
+      //   let userAge = 12;
+      //   let logo = "1.jpg";
+      //   //let str = "name=" + userName + ",age=" + userAge + ",logo=" + logo;
+      //   let str = `name1=${userName},age1=${userAge},logo1=${logo}`;
+      //   console.log(str);
+
+      //   function showUser(){
+      //       return "12456789";
+      //   }
+      //   console.log(`我的内容是:${showUser()}.`);
+
+      function showUser(a, b, c, d) {
+        return a[0] + b + a[1] + c + a[2] + d;
+      }
+      let userName = "xiaoming";
+      let userAge = 12;
+      let logo = "pic1.jpg";
+      let out = showUser`name=${userName},age=${userAge},logo=${logo}.`;
+      console.log(out);
+
+      function showUser1(userName, userAge, logo) {
+        return showUser`name=${userName},age=${userAge},logo=${logo}.`;
+      }
+      console.log(showUser1("zhangsan", "45", "pic2.jpg"));
+    </script>
+  </body>
+</html>

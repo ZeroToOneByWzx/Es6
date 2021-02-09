@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8.新增数据结构Map的应用</title>
+  </head>
+  <body>
+    <script>
+      // Map 可用的 方法
+      // set(key, value): 向其中加入一个键值对
+      // get(key): 若不存在 key 则返回 undefined
+      // has(key):返回布尔值
+      // delete(key): 删除成功则返回 true, 若key不存在或者删除失败会返回 false
+      // clear(): 将全部元素清除
+
+      let num = 123; //数字
+      let arr = [1, 2, 3, 4]; //数组
+      let fun = function () {}; //函数
+      let obj = {}; //对象
+
+      const map1 = new Map();
+      map1.set(num);
+      map1.set(arr, "q2");
+      map1.set(fun, "q3");
+      map1.set(obj, "q4");
+
+      map1.set("aaa", "q5");
+
+      //   console.log(map1)
+      //   console.log(map1.values())
+      //   console.log(...map1.values())
+      //   console.log(map1.entries())
+      //   console.log(...map1.entries())
+
+      //   for (const key of map1) {
+      //     console.log(key);
+      //   }
+
+      for (const key of map1.keys()) {
+        // console.log(key);
+        // console.log(typeof(key));
+      }
+
+      const map2 = new Map([
+        ["s1", "as1"],
+        ["s2", "as2"],
+        ["s3", "as3"],
+        ["s4", "as4"],
+      ]);
+
+      map2.set("s5", "as5");
+      map2.delete("s3"); //delete(key): 删除成功则返回 true, 若key不存在或者删除失败会返回 false
+      //   console.log(map2.has("s3"));
+      //   console.log(map2);
+
+      //   console.log(...map2.values()); //将value转成数组,直接进行显示
+      let arr1 = [...map2.values()];
+      let arr2 = [...map2.keys()];
+      let arr3 = [...map2.entries()];
+      //   console.log(arr1);
+      //   console.log(arr2);
+      //   console.log(arr3);
+
+      for (const key of map2.keys()) {
+        // console.log(key);
+      }
+    </script>
+  </body>
+</html>

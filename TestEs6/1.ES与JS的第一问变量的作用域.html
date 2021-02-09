@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.ES与JS的第一问变量的作用域</title>
+  </head>
+  <body>
+    <script>
+      //写在前面测试
+      // var k = 9;
+      // console.log(k);
+      // console.log(k);//var 未声明先调用undefined
+      // var k = 19;
+
+      //1、不允许未定义就使用(会出现Uncaught ReferenceError: k is not defined错误) var可以(只会出现undefined);不允许重复声明
+      //   let k = 10;
+      //   console.log(k);
+      //   let k = 101;
+      //   console.log(k);//已经声明了标识符“k”  会出现错误: ncaught SyntaxError: Identifier 'k' has already been declared
+
+      // 2、let创建的是局部变量(块级),var创建的是全局变量   --------->>>>>>>>>>不要再用var了
+      //   for (var i = 0; i < 5; i++) {
+      //     console.log("用var时for循环里的i:" + i);
+      //   }
+      //   console.log("用var时for循环外的i:" + i);
+
+      //   for (let j = 0; j < 5; j++) {
+      //     console.log("用let时for循环里的j:" + j);
+      //   }
+      //   console.log("用let时for循环外的j:" + j);//Uncaught ReferenceError: i is not defined
+
+      // 3、同一个块,不允许重复声明变量
+      //   function show(args) {
+      //     var args = "9999";
+      //     console.log(args); //可以正常输出 结果是9999
+      //   }
+      // function show1(args) {
+      //   let args = "8888"; //传入的args与这里的args重复声明了
+      //   console.log(args); //Uncaught SyntaxError: Identifier 'args' has already been declared
+      // }
+      // show1("0987");
+      // function show2(args) {
+      //   {
+      //     let args = "6666";
+      //     console.log(args); //可以正常输出 结果是6666 加上{}改变了命运
+      //   }
+      // }
+      // show2("0987");
+
+      // 4、常量const代表是常量 是不可以修改的
+      //   const x = 2; //要注意const声明的常量不是值不能动，而是指向的那个内存地址所保存的数据不得改动
+      //   x=991;
+      //   console.log(x); //Uncaught TypeError: Assignment to constant variable.
+    </script>
+  </body>
+</html>
